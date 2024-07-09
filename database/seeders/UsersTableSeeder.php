@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
@@ -45,7 +46,17 @@ class UsersTableSeeder extends Seeder
             ]
         );
 
-        \App\Models\User::factory(8)->create();
+        DB::table('vendors')->insert(
+            [
+                [
+                    'join_date' => Carbon::now()->year,
+                    'infos' => '',
+                    'user_id' => 2,
+                ],
+            ]
+        );
+
+        // \App\Models\User::factory(8)->create();
 
     }
 }

@@ -42,6 +42,7 @@ class VendorController extends Controller
         $data->phone = $request->phone;
         $data->adresse = $request->adresse;
         $data->vendor->infos = $request->infos;
+
         if ($request->file('photo')) {
             $file = $request->file('photo');
             @unlink(public_path('upload/vendor_images/' . $data->photo));
@@ -49,8 +50,7 @@ class VendorController extends Controller
             $file->move(public_path('upload/vendor_images'), $filename);
             $data['photo'] = $filename;
         }
-        
-        $data->vendor->save();
+
         $data->save();
 
         $notifications = array(

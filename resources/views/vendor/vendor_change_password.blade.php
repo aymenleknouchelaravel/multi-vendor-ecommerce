@@ -1,12 +1,12 @@
-@extends('admin.admin_dashboard')
+@extends('vendor.vendor_dashboard')
 
-@section('title', 'Admin Dashboard')
+@section('title', 'Vendor Dashboard')
 
-@section('admin')
+@section('vendor')
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Admin Change Password</div>
+            <div class="breadcrumb-title pe-3">Vendor Change Password</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <form action="{{ route('admin.update.password') }}" method="POST">
+                            <form action="{{ route('vendor.update.password') }}" method="POST">
                                 @csrf
                                 <div class="card-body">
                                     <!-- Current Password Field -->
