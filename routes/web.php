@@ -28,6 +28,10 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     // index
     Route::get('/Home', [UserController::class, 'home'])->name('dashboard');
 
+     // profile update
+     Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
+     Route::post('/user/profile/store', [UserController::class, 'userProfileStore'])->name('user.profile.store');
+
     // logout
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
 });
