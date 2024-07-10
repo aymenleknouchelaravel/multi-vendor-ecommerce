@@ -14,16 +14,12 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/imgs/theme/favicon.svg') }}" />
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css?v=5.3') }}" />
-
-    
 </head>
 
 <body>
 
     @include('frontend.body.preloader')
-
     <!-- Quick view -->
     <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel"
         aria-hidden="true">
@@ -137,11 +133,12 @@
 
     @include('frontend.body.header')
 
-    <main class="main">
+    <main class="main pages">
         @yield('body')
     </main>
 
     @include('frontend.body.footer')
+
 
     <!-- Vendor JS-->
     <script src="{{ asset('frontend/assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
@@ -150,11 +147,11 @@
     <script src="{{ asset('frontend/assets/js/vendor/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/slick.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/jquery.syotimer.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/plugins/waypoints.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/wow.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/magnific-popup.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/select2.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/plugins/waypoints.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/counterup.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/jquery.countdown.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugins/images-loaded.js') }}"></script>

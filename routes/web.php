@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,25 +17,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// guest
+Route::get('/', [GuestController::class, 'welcome'])->name('geust.home');
 
 require __DIR__ . '/auth.php';
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
 
+Route::middleware(['auth', 'role:user'])->group(function () {
+    // index
+    Route::get('/Home', [UserController::class, 'home'])->name('dashboard');
 
+    // logout
+    Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // index
@@ -50,8 +47,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // logout
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 });
-
-
 
 Route::middleware(['auth', 'role:vendor'])->group(function () {
     // index
